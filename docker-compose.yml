@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  backend:
+    build: .
+    command: python /code/app/manage.py runserver 0.0.0.0:8000
+    volumes:
+    - .:/code
+    ports:
+    - 8000:8000
+    depends_on:
+      - db
+
+  db:
+    image: postgres:11
+    volumes:
+    - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+
+volumes:
+  postgres_data:
