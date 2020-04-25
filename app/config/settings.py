@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Third-party
     'crispy_forms',
+    'allauth',
+    'allauth.account',
 
     'apps.users.apps.UsersConfig',
     'apps.pages.apps.PagesConfig',
@@ -140,3 +143,5 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+SITE_ID = 1
