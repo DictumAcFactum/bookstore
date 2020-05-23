@@ -143,10 +143,23 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SITE_ID = 1
+
+# django-allauth config
+
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+# ACCOUNT_SESSION_REMEMBER = True
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 INTERNAL_IPS = [
     'localhost',
