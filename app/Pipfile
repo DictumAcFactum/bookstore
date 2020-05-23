@@ -12,6 +12,7 @@ django-crispy-forms = "*"
 django-allauth = "*"
 django-debug-toolbar = "*"
 pillow = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"
