@@ -4,6 +4,9 @@ services:
   backend:
     build: ./app
     command: python /code/app/manage.py runserver 0.0.0.0:8000
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=afs2uchyrov1e0t_3-6-mfyrgceo^gikqa5by32*@1uk5goay+
     volumes:
     - .:/code
     ports:
