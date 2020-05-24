@@ -162,9 +162,19 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 INTERNAL_IPS = [
     'localhost',
     '127.0.0.1',
 ]
+
+# email settings
+DEFAULT_FROM_EMAIL = 'admin@djangobookstore.com'
+# local
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# for email provider
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST
+# EMAIL_HOST_USER
+# EMAIL_HOST_PASSWORD
+# EMAIL_PORT
+# EMAIL_USE_TLS
