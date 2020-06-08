@@ -13,6 +13,7 @@ django-allauth = "*"
 django-debug-toolbar = "*"
 pillow = "*"
 requests = "*"
+factory-boy = "*"
 
 [requires]
 python_version = "3.8"
