@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
     'apps.users.apps.UsersConfig',
     'apps.pages.apps.PagesConfig',
+    'apps.money.apps.MoneyConfig',
 ]
 
 MIDDLEWARE = [
