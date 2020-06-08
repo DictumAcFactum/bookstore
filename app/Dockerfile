@@ -8,4 +8,6 @@ WORKDIR /code
 COPY Pipfile Pipfile.lock /code/
 RUN pip install pipenv && pipenv install --system
 
+USER 1000:1000
+
 COPY . /code/
