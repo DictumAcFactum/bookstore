@@ -1,6 +1,5 @@
-from .common import Currency
+from . import common
 
 
-class Franc(Currency):
-    def times(self, multiplier):
-        return Franc(self.amount * multiplier)
+class Franc(common.Currency):
+    pass
