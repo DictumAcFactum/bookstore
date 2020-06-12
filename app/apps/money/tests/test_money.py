@@ -22,3 +22,8 @@ class MoneyTestCase(TestCase):
         self.assertTrue(Currency.dollar(1).equals(Currency.dollar(1)))
         self.assertTrue(Currency.franc(42).equals(Currency.franc(42)))
         self.assertFalse(Currency.dollar(1).equals(Currency.franc(1)))
+
+    def test_currency_type(self):
+        self.assertEqual('USD', Currency.dollar(1).get_currency_type)
+        self.assertNotEqual('CHF', Currency.dollar(1).get_currency_type)
+        self.assertEqual('CHF', Currency.franc(1).get_currency_type)
