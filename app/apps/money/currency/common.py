@@ -7,3 +7,6 @@ class Currency:
 
     def __eq__(self, other):
         return self.amount == other
+
+    def equals(self, other):
+        return self.amount == other.amount and self.__class__ == other.__class__
