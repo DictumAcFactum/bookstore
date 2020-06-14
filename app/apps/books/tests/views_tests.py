@@ -2,6 +2,7 @@ from requests import codes
 
 from django.test import TestCase
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 
 from .. import models
 
@@ -25,6 +26,14 @@ class BookDetailTestCase(TestCase):
             author='Plato',
             price='20.00',
         )
+        self.user = get_user_model().objects.create_user(
+            username='reviewuser',
+            email='reviewuser@email.com',
+            password='testpass123')
+        self.review = models.Review.objects.create(
+            book=self.book,
+            author=self.user,
+            review='was the template used?')
         self.response = self.client.get(self.book.get_absolute_url())
         self.no_response = self.client.get('books/1234')
 
@@ -34,3 +43,4 @@ class BookDetailTestCase(TestCase):
 
     def test_book_detail_template(self):
         self.assertTemplateUsed(self.response, 'books/book_detail.html')
+        self.assertContains(self.response, 'was the template used?')
