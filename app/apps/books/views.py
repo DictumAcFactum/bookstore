@@ -10,3 +10,6 @@ class BookListView(ListView):
 
 class BookDetailView(DetailView):
     model = Book
+
+    def get_queryset(self):
+        return super().get_queryset().prefetch_related('review_set')
