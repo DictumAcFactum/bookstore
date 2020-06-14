@@ -1,11 +1,11 @@
 from django.test import TestCase
 
-from .. import models
+from ..factories import BookFactory
 
 
 class BookTestCase(TestCase):
     def setUp(self) -> None:
-        self.book = models.Book.objects.create(
+        self.book = BookFactory.create(
             title='Dialogues',
             author='Plato',
             price='20.00',
