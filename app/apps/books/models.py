@@ -11,6 +11,11 @@ class Book(models.Model):
     author = models.CharField(max_length=200)
     price = models.DecimalField(decimal_places=2, max_digits=6)
 
+    class Meta:
+        permissions = [
+            ("special_status", "Can read all books"),
+        ]
+
     def __str__(self):
         return self.title
 
