@@ -27,3 +27,11 @@ class MoneyTestCase(TestCase):
         self.assertEqual('USD', Currency.dollar(1).get_currency_type)
         self.assertNotEqual('CHF', Currency.dollar(1).get_currency_type)
         self.assertEqual('CHF', Currency.franc(1).get_currency_type)
+        self.assertEqual('USD', self.five_dollars.times(2).get_currency_type)
+        self.assertEqual('USD', self.five_dollars.get_currency_type)
+        self.assertEqual('USD', self.five_dollars.get_currency_type)
+
+    def test_currency_str(self):
+        self.assertEqual(self.five_francs.__str__(), '5 CHF')
+        self.assertEqual(Currency.dollar(100).__str__(), '100 USD')
+        self.assertEqual(Currency(5).__str__(), '5 None')

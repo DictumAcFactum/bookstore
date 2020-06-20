@@ -6,6 +6,12 @@ class Currency:
         self.amount = amount
         self.currency_type = currency_type
 
+    def __eq__(self, other):
+        return self.amount == other
+
+    def __str__(self):
+        return f'{self.amount} {self.currency_type}'
+
     @staticmethod
     def dollar(val):
         return currency.Dollar(val, currency_type='USD')
@@ -15,13 +21,10 @@ class Currency:
         return currency.Franc(val, currency_type='CHF')
 
     def times(self, multiplier):
-        return Currency(self.amount * multiplier)
-
-    def __eq__(self, other):
-        return self.amount == other
+        return Currency(self.amount * multiplier, currency_type=self.currency_type)
 
     def equals(self, other):
-        return self.amount == other.amount and self.__class__ == other.__class__
+        return self.amount == other.amount and self.get_currency_type == other.get_currency_type
 
     @property
     def get_currency_type(self):
