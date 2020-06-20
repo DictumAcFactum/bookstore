@@ -1,4 +1,7 @@
-class Currency:
+from .expressions import Expression
+
+
+class Currency(Expression):
     def __init__(self, amount, currency_type=None):
         self.amount = amount
         self.currency_type = currency_type

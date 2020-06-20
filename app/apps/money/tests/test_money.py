@@ -1,9 +1,10 @@
 from django.test import TestCase
-from ..currency import Currency
+from ..currency import Currency, Bank
 
 
 class MoneyTestCase(TestCase):
     def setUp(self) -> None:
+        self.bank = Bank()
         self.five_dollars = Currency.dollar(5)
         self.five_francs = Currency.franc(5)
 
@@ -34,3 +35,8 @@ class MoneyTestCase(TestCase):
         self.assertEqual(self.five_francs.__str__(), '5 CHF')
         self.assertEqual(Currency.dollar(100).__str__(), '100 USD')
         self.assertEqual(Currency(5).__str__(), '5 None')
+
+    def test_simple_addition(self):
+        _sum = self.five_dollars.plus(self.five_dollars)
+        reduced = self.bank.reduce(_sum.amount, 'USD')
+        self.assertEqual(Currency.dollar(10), reduced)
