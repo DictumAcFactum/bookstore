@@ -4,7 +4,7 @@ class Currency:
         self.currency_type = currency_type
 
     def __eq__(self, other):
-        return self.amount == other
+        return self.amount == other.amount and self.get_currency_type == other.get_currency_type
 
     def __str__(self):
         return f'{self.amount} {self.currency_type}'
@@ -19,9 +19,6 @@ class Currency:
 
     def times(self, multiplier):
         return Currency(self.amount * multiplier, currency_type=self.currency_type)
-
-    def equals(self, other):
-        return self.amount == other.amount and self.get_currency_type == other.get_currency_type
 
     @property
     def get_currency_type(self):

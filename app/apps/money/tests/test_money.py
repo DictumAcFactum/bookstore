@@ -16,11 +16,11 @@ class MoneyTestCase(TestCase):
         self.assertEqual(Currency.franc(15), self.five_francs.times(3))
 
     def test_equality(self):
-        self.assertFalse(Currency.dollar(10).equals(Currency.franc(10)))
-        self.assertFalse(Currency.franc(10).equals(Currency.franc(100)))
-        self.assertTrue(Currency.dollar(1).equals(Currency.dollar(1)))
-        self.assertTrue(Currency.franc(42).equals(Currency.franc(42)))
-        self.assertFalse(Currency.dollar(1).equals(Currency.franc(1)))
+        self.assertFalse(Currency.dollar(10) == Currency.franc(10))
+        self.assertFalse(Currency.franc(10) == Currency.franc(100))
+        self.assertTrue(Currency.dollar(1) == Currency.dollar(1))
+        self.assertTrue(Currency.franc(42) == Currency.franc(42))
+        self.assertFalse(Currency.dollar(1) == Currency.franc(1))
 
     def test_currency_type(self):
         self.assertEqual('USD', Currency.dollar(1).get_currency_type)
