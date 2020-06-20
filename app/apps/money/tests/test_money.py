@@ -18,7 +18,6 @@ class MoneyTestCase(TestCase):
     def test_equality(self):
         self.assertFalse(Currency.dollar(10).equals(Currency.franc(10)))
         self.assertFalse(Currency.franc(10).equals(Currency.franc(100)))
-        self.assertFalse(Currency.dollar(77).equals(Currency.dollar(88)))
         self.assertTrue(Currency.dollar(1).equals(Currency.dollar(1)))
         self.assertTrue(Currency.franc(42).equals(Currency.franc(42)))
         self.assertFalse(Currency.dollar(1).equals(Currency.franc(1)))

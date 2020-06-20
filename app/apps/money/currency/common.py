@@ -1,6 +1,3 @@
-from .. import currency
-
-
 class Currency:
     def __init__(self, amount, currency_type=None):
         self.amount = amount
@@ -12,13 +9,13 @@ class Currency:
     def __str__(self):
         return f'{self.amount} {self.currency_type}'
 
-    @staticmethod
-    def dollar(val):
-        return currency.Dollar(val, currency_type='USD')
+    @classmethod
+    def dollar(cls, val):
+        return cls(val, currency_type='USD')
 
-    @staticmethod
-    def franc(val):
-        return currency.Franc(val, currency_type='CHF')
+    @classmethod
+    def franc(cls, val):
+        return cls(val, currency_type='CHF')
 
     def times(self, multiplier):
         return Currency(self.amount * multiplier, currency_type=self.currency_type)
