@@ -15,6 +15,8 @@ pillow = "*"
 requests = "*"
 factory-boy = "*"
 black = "*"
+django-extensions = "*"
+django-model-utils = "*"
 
 [requires]
 python_version = "3.8"

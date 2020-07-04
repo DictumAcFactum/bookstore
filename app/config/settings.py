@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'debug_toolbar',
+    'django_extensions',
+    # 'django-model-utils',
 
     'apps.users.apps.UsersConfig',
     'apps.pages.apps.PagesConfig',
